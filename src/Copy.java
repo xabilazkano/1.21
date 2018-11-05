@@ -5,18 +5,22 @@ import java.io.FileWriter;
 public class Copy {
 
 	public static void main(String[] args) throws IOException {
+		if (args.length==2) {
 		String newfile = args[1];
 		File file = new File(newfile);
 		if(file.createNewFile()){
             System.out.println("file.txt File Created in Project root directory");
         }else System.out.println("File file.txt already exists in project root directory");
 		
-		String content = new Scanner(new File(args[0])).useDelimiter("\\Z").next();
+		Scanner sc = new Scanner(new File(args[0]));
+		String content = sc.useDelimiter("\\z").next();
 		
 		FileWriter fileWriter = new FileWriter(file);
 		fileWriter.write(content);
 		fileWriter.flush();
 		fileWriter.close();
+		sc.close();
+	}
 	}
 
 }
