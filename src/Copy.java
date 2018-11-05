@@ -20,7 +20,11 @@ public class Copy {
 		fileWriter.flush();
 		fileWriter.close();
 		sc.close();
+		
 	}
+		else {
+			System.out.println("You haven't entered two arguments");
+		}
 	}
 
 }
